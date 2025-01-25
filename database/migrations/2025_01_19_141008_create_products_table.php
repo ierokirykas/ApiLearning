@@ -15,10 +15,35 @@ return new class extends Migration {
             $table->string("name");
             $table->text("description");
             $table->decimal("price", 8, 2);
+            $table->text('image')->nullable();
             $table->integer("stock");
             $table->string("status")->default("available");
             $table->timestamps();
         });
+
+        \App\Models\Product::create([
+            'name' => 'Smartphone X1',
+            'description' => 'Latest generation smartphone with advanced features',
+            'price' => 999.99,
+            'stock' => 50,
+            'status' => 'available'
+        ]);
+
+        \App\Models\Product::create([
+            'name' => 'Wireless Headphones Pro',
+            'description' => 'High-quality wireless headphones with noise cancellation',
+            'price' => 199.99,
+            'stock' => 100,
+            'status' => 'available'
+        ]);
+
+        \App\Models\Product::create([
+            'name' => 'Smart Watch Elite',
+            'description' => 'Feature-rich smartwatch with health monitoring',
+            'price' => 299.99,
+            'stock' => 75,
+            'status' => 'available'
+        ]);
     }
 
     /**

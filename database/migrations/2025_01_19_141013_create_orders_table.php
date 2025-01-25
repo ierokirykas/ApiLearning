@@ -24,6 +24,19 @@ return new class extends Migration {
             $table->text("shipping_address");
             $table->timestamps();
         });
+
+        \App\Models\Order::create([
+            'user_id' => 1,
+            'customer_name' => 'Admin User',
+            'product_id' => 1,
+            'quantity' => 2,
+            'discount' => 50.00,
+            'total' => 1949.98,
+            'status' => 'created',
+            'payment_status' => 'pending',
+            'shipping_status' => 'pending',
+            'shipping_address' => '123 Tech Street, Silicon Valley, CA 94025'
+        ]);
     }
 
     /**
