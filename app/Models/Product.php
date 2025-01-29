@@ -11,7 +11,8 @@ class Product extends Model
         'description',
         'price',
         'stock',
-        'status'
+        'status',
+        'image'
     ];
 
     /*
@@ -39,6 +40,7 @@ class Product extends Model
             'price' => $this->price,
             'stock' => $this->stock,
             'status' => $this->status,
+            'image' => $this->image,
         ];
     }
 
