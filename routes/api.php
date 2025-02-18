@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RollController;
+use App\Http\Controllers\UserController;
 
 //http://myapi.test/api/roll
 Route::get('/roll',[RollController::class, 'index']);

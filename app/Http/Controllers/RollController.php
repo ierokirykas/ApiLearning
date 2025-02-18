@@ -9,7 +9,8 @@ class RollController extends Controller
     public function index() {
         $dices = [
             'dice1' => rand(1,6),
-            'dice2' => rand(1,6)
+            'dice2' => rand(1,6),
+            'dice3' => rand(1,60)
         ];
         return response()->json($dices);
     }
