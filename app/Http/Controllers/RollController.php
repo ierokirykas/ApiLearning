@@ -17,24 +17,24 @@ class RollController extends Controller
     public function status()
     {
         $status_info = [
-            "status" => "active"
+            "status"=>"active"
         ];
-        return response() -> json($status_info);
+        return response()->json($status_info);
     }
     public function store()
     {
-        $shop_info = ["name"=>"Магазин Уютный уголок",
-        "address"=> "ул. Центральная, д. 15, г. Порт",
+        $shop_info = ["name"=>"PhotoShop",
+        "address"=> "ул. Театральная, д. 15, г. Рязань",
         "working_hours"=> "Пн-Пт: 9:00-20:00, Сб-Вс: 10:00-18:00",
-        "phone"=> "+351 123 456 789",
-        "email"=> "info@cozycorner.com",
-        "website"=> "https://www.cozycorner.com",
-        "description"=> "Магазин товаров для дома и уюта.",
+        "phone"=> "+79885329901",
+        "email"=> "info@photoshop.com",
+        "website"=> "https://www.realphotoshop.com",
+        "description"=> "Магазин картин и фотографий",
         "social_media" => [
-            "instagram"=> "https://www.instagram.com/cozycorner",
-            "facebook"=> "https://www.facebook.com/cozycorner"
+            "instagram"=> "https://www.instagram.com/realphotoshop",
+            "facebook"=> "https://www.facebook.com/realphotoshop"
             ]
         ];
-        return response() -> json($shop_info);
+        return response()->json($shop_info);
     }
 }
