@@ -15,6 +15,9 @@ Route::get('/status',[RollController::class, 'status']);
 //http://myapi.test/api/store
 Route::get('/store',[RollController::class, 'store']);
 
+Route::get('/external',[RollController::class, 'external']);
+
+Route::get('/image',[RollController::class, 'getImage']);
 
 //php artisan make:controller UserController
 //CRUD for users

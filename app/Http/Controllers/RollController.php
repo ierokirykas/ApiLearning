@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Http;
 class RollController extends Controller
 {
     public function index() {
@@ -36,5 +36,38 @@ class RollController extends Controller
             ]
         ];
         return response()->json($shop_info);
+    }
+    public function external() {
+        $baseurl = "https://api.unsplash.com";
+        $key = 'lRctv0Jey0H5e0eAZj3iOLJyiRVXi-AS9RrynokCOSE'; //плиз не копируйте ;)
+        $path = '/photos/random';
+
+        $responce = Http::withHeaders([
+            'Authorization' => 'Client-ID ' . $key
+        ])->get($baseurl . $path);
+        
+        if ($responce->json() == 401){
+            return response()->json(['message'=>'oops']);
+        }
+        return response()->json($responce->json());
+    }
+    public function getImage(){
+        $baseurl = "https://api.unsplash.com";
+        $key = 'lRctv0Jey0H5e0eAZj3iOLJyiRVXi-AS9RrynokCOSE'; //плиз не копируйте ;)
+        $path = '/photos/random';
+
+        $responce = Http::withHeaders([
+            'Authorization' => 'Client-ID ' . $key
+        ])->get($baseurl . $path);
+
+        if ($responce->status() == 401){
+            return response()->json(['message'=>'oops']);
+        }
+        $data = $responce->json();
+        $url = $data['urls']['small'];
+        if ($url) {
+            return response()->json(['url' => $url]);
+        }
+        return response()->json(['message' => 'Не найдено =('], 404);
     }
 }

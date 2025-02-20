@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RollController;
+use Illuminate\Support\Facades\Http;
 class Product extends Model
 {
     protected $fillable = [
@@ -23,8 +25,12 @@ class Product extends Model
      */
     public static function createProduct(array $data)
     {
+        $response = Http::get(url('/image'));
+        $url = $response->json()['url'] ?? null;
+        $data['image'] = $url;
         return self::create($data);
-    }
+    } //Не понимаю... Вроде правильно сделал, а выдаёт null
+    //Кстати, я не помню, а мы изучали как читать url запросы?
 
     /*
     * Получение информации о продукте
